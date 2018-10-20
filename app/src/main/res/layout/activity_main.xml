@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewMainActivitySun"
         android:layout_width="230dp"
         android:layout_height="230dp"
         android:layout_marginStart="8dp"
@@ -18,7 +18,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/ic_icons8_sun" />
+        android:src="@drawable/ic_icons8_sun"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/textView"
@@ -31,7 +32,7 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewMainActivitySun" />
 
     <TextView
         android:id="@+id/textView2"
