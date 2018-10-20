@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Disaster</string>
+    <string name="json">
+        {
+            [
+                {
+                    "Title": "Huricane",
+                    "ImagePath": "ImagePath-TODO"
+                    "Steps": [
+                        {"Time": "Time-Test", "Step": "Step 1 - Test"}
+                        {"Time": "Time-Test", "Step": "Step 2 - Test"}
+                        {"Time": "Time-Test", "Step": "Step 3 - Test"}
+                        {"Time": "Time-Test", "Step": "Step 4 - Test"}
+                    ]
+                },
+            ]
+        }
+    </string>
 </resources>
