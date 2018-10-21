@@ -1,18 +1,20 @@
 package com.snsdevelop.nasa.disaster.Entities;
 
+import java.util.List;
+
 public class Disaster
 {
-    private string Title;
+    private String Title;
 
-    private string Image;
+    private String Image;
 
     private List<Step> Steps;
 
-    public void setTitle(string title) {
+    public void setTitle(String title) {
         Title = title;
     }
 
-    public void setImage(string image) {
+    public void setImage(String image) {
         Image = image;
     }
 
@@ -20,11 +22,11 @@ public class Disaster
         Steps = steps;
     }
 
-    public string getTitle() {
+    public String getTitle() {
         return Title;
     }
 
-    public string getImage() {
+    public String getImage() {
         return Image;
     }
 

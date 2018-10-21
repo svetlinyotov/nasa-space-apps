@@ -1,28 +1,23 @@
 package com.snsdevelop.nasa.disaster.Entities;
 
-public class Step
-{
-    private string Time;
+public class Step {
+    private String Time;
 
-    private string Step;
+    private String Step;
 
-    public string GetTime()
-    {
+    public String GetTime() {
         return Time;
     }
 
-    public string GetStep()
-    {
+    public String GetStep() {
         return Step;
     }
 
-    public void SetTime(string time)
-    {
+    public void SetTime(String time) {
         Time = time;
     }
 
-    public void SetStep(string step)
-    {
+    public void SetStep(String step) {
         Step = step;
     }
 }
