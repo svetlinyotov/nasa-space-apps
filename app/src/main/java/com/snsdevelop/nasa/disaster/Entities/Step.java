@@ -4,6 +4,7 @@ public class Step {
     private String Time;
     private String image;
     private String Step;
+    private String description;
 
     public int getState() { return State; }
 
@@ -35,5 +36,13 @@ public class Step {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

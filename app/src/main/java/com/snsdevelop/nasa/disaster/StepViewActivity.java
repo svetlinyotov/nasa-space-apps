@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.snsdevelop.nasa.disaster.Entities.Disaster;
 import com.snsdevelop.nasa.disaster.Entities.Step;
 import com.snsdevelop.nasa.disaster.Utils.DisasterInfo;
 import com.squareup.picasso.Picasso;
@@ -24,15 +23,20 @@ public class StepViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_step_view);
 
         Button buttonListAll = findViewById(R.id.button2);
+
+        ImageView image = findViewById(R.id.imageViewStepImage);
+        TextView stepName = findViewById(R.id.textViewStepName);
+
+
         buttonListAll.setOnClickListener(view -> {
             Intent myIntent = new Intent(this, StepsListActivity.class);
             startActivity(myIntent);
         });
 
+        Picasso.get().load("http://snsdevelop.com/nasa_img/tornado.jpg").into(image);
         Button buttonDone = findViewById(R.id.button);
 
-        Disaster disaster = DisasterInfo.getData("tornado");
-        List<Step> steps = disaster.getSteps();
+        List<Step> steps = DisasterInfo.getData("tornado").getSteps();
         buttonDone.setOnClickListener(view -> {
 
             int currentStepIndex = 0;
@@ -48,16 +52,12 @@ public class StepViewActivity extends AppCompatActivity {
                     currentStepIndex = i;
                 }
             }
-                ImageView image = findViewById(R.id.imageViewStepImage);
-                TextView stepName = findViewById(R.id.textViewStepName);
-
                 steps.get(currentStepIndex).setState(0);
                 steps.get(currentStepIndex + 1).setState(1);
 
                 Picasso.get().load(steps.get(currentStepIndex + 1).getImage()).into(image);
                 stepName.setText(steps.get(currentStepIndex + 1).GetStep());
 
-//                DisasterInfo.
 
 //                TextView title = findViewById(R.id.textViewDisasterTitle);
 //                TextView description = findViewById(R.id.textViewDisasterContent);
