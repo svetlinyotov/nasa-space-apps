@@ -20,7 +20,9 @@
         </activity>
         <activity android:name=".DisasterInfoActivity" />
 
-        <service android:name="com.snsdevelop.nasa.disaster.Services.DisasterCheckerService" />
+        <service android:name=".Services.DisasterCheckerService" />
+
+        <activity android:name=".StepsListActivity"></activity>
     </application>
 
 </manifest>

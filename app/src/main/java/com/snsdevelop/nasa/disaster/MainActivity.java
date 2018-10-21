@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView imageSun = findViewById(R.id.imageViewMainActivitySun);
 
-        imageSun.setOnClickListener((view) -> startActivity(new Intent(this, DisasterInfoActivity.class)));
+        imageSun.setOnClickListener((view) -> startActivity(new Intent(this, StepsListActivity.class)));
 
         startService(new Intent(this, DisasterCheckerService.class));
     }
