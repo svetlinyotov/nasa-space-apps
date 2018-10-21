@@ -5,6 +5,14 @@ public class Step {
     private String image;
     private String Step;
 
+    public int getState() { return State; }
+
+    public void setState(int state) {
+        State = state;
+    }
+
+    private int State;
+
     public String GetTime() {
         return Time;
     }
