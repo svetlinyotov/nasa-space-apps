@@ -2,6 +2,7 @@ package com.snsdevelop.nasa.disaster;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -9,6 +10,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.snsdevelop.nasa.disaster.Adapters.StepsListAdapter;
+import com.snsdevelop.nasa.disaster.Entities.Disaster;
+import com.snsdevelop.nasa.disaster.Utils.DisasterInfo;
 
 
 public class StepsListActivity extends Activity{
@@ -30,20 +33,18 @@ public class StepsListActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_steps_list);
 
-        StepsListAdapter adapter = new StepsListAdapter(this, itemname, imgid);
-        list=(ListView)findViewById(R.id.list);
+        Disaster disaster = DisasterInfo.getData("tornado");
+        Log.d("COOL", String.valueOf(disaster.getSteps().size()));
+
+        StepsListAdapter adapter = new StepsListAdapter(this, disaster.getSteps());
+        list=findViewById(R.id.list);
         list.setAdapter(adapter);
 
-        list.setOnItemClickListener(new OnItemClickListener() {
+        list.setOnItemClickListener((parent, view, position, id) -> {
+            // TODO Auto-generated method stub
+            String Slecteditem= itemname[+position];
+            Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // TODO Auto-generated method stub
-                String Slecteditem= itemname[+position];
-                Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
-
-            }
         });
     }
 }

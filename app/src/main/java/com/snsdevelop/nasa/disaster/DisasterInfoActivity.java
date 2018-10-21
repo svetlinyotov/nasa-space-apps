@@ -1,7 +1,9 @@
 package com.snsdevelop.nasa.disaster;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +23,7 @@ public class DisasterInfoActivity extends AppCompatActivity {
         TextView description = findViewById(R.id.textViewDisasterContent);
         TextView expectedIn = findViewById(R.id.textViewExpectedIn);
         ImageView imageView = findViewById(R.id.imageViewDisaster);
+        Button button = findViewById(R.id.buttonWhatToDo);
 
         String d = StoredData.getString(this, StoredData.DISASTER);
         Disaster disaster = DisasterInfo.getData(d);
@@ -30,6 +33,7 @@ public class DisasterInfoActivity extends AppCompatActivity {
             description.setText(disaster.getDescription());
             expectedIn.setText(disaster.getExpectedIn());
             Picasso.get().load(disaster.getImage()).into(imageView);
+            button.setOnClickListener((v) -> startActivity(new Intent(this, StepViewActivity.class)));
         }
     }
 
