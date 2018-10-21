@@ -69,7 +69,7 @@ public class DisasterCheckerService extends Service {
                             String expected = "";
                             if (disaster.equals("tornado")) {
                                 name = "Tornado";
-                                expected = "48 hours";
+                                expected = "6 hours";
                             } else if (disaster.equals("flood")) {
                                 name = "Flood";
                                 expected = "24 hours";
@@ -77,13 +77,23 @@ public class DisasterCheckerService extends Service {
 
                             String check = StoredData.getString(DisasterCheckerService.this, StoredData.DISASTER);
                             if ((check != null && check.equals("null")) || (check != null && !check.equals(disaster))) {
+
+                                Intent notificationIntent = new Intent(context, MainActivity.class);
+                                notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                        | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+                                PendingIntent intent = PendingIntent.getActivity(context, 0,
+                                        notificationIntent, 0);
+
                                 NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, CHANNEL_ID)
                                         .setSmallIcon(R.drawable.ic_wb_sunny_black_24dp)
                                         .setContentTitle(name + " expected in your area")
                                         .setContentText("Please take necessary steps to be safe")
                                         .setStyle(new NotificationCompat.BigTextStyle()
                                                 .bigText("The disaster is expected in " + expected))
-                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setOngoing(true)
+                                        .setContentIntent(intent);
 
                                 NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 if (mNotificationManager != null) {
@@ -93,16 +103,6 @@ public class DisasterCheckerService extends Service {
                                         NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "Disaster Notification", importance);
                                         mNotificationManager.createNotificationChannel(channel);
                                     }
-
-                                    Intent notificationIntent = new Intent(context, MainActivity.class);
-
-                                    notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
-                                            | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-
-                                    PendingIntent intent = PendingIntent.getActivity(context, 0,
-                                            notificationIntent, 0);
-
-//                                    notification.setLatestEventInfo(context, title, message, intent);
 
                                     mNotificationManager.notify(1, mBuilder.build());
                                 }
