@@ -3,11 +3,13 @@ package com.snsdevelop.nasa.disaster;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.snsdevelop.nasa.disaster.Entities.Disaster;
 import com.snsdevelop.nasa.disaster.Entities.Step;
 import com.snsdevelop.nasa.disaster.Utils.DisasterInfo;
 import com.squareup.picasso.Picasso;
@@ -28,27 +30,34 @@ public class StepViewActivity extends AppCompatActivity {
         });
 
         Button buttonDone = findViewById(R.id.button);
-        buttonListAll.setOnClickListener(view -> {
-            List<Step> steps = DisasterInfo.getData("tornado").getSteps();
+
+        Disaster disaster = DisasterInfo.getData("tornado");
+        List<Step> steps = disaster.getSteps();
+        buttonDone.setOnClickListener(view -> {
 
             int currentStepIndex = 0;
 
-            for (int i = 0; i < steps.size(); i++)
-            {
-                if (steps.get(i).getState() == 1)
-                {
+            for (int i = 0; i < steps.size(); i++) {
+//                Log.d("COOL", String.valueOf(steps.size()));
+//                Log.d("COOL", String.valueOf(i));
+//                if (i == steps.size() - 1) {
+//                    steps.get(steps.size() - 1).setState(0);
+//                    return;
+//                }
+                if (steps.get(i).getState() == 1) {
                     currentStepIndex = i;
                 }
-
+            }
                 ImageView image = findViewById(R.id.imageViewStepImage);
                 TextView stepName = findViewById(R.id.textViewStepName);
 
-                steps.get(currentStepIndex).setState(2);
+                steps.get(currentStepIndex).setState(0);
                 steps.get(currentStepIndex + 1).setState(1);
 
                 Picasso.get().load(steps.get(currentStepIndex + 1).getImage()).into(image);
                 stepName.setText(steps.get(currentStepIndex + 1).GetStep());
 
+//                DisasterInfo.
 
 //                TextView title = findViewById(R.id.textViewDisasterTitle);
 //                TextView description = findViewById(R.id.textViewDisasterContent);
@@ -65,7 +74,7 @@ public class StepViewActivity extends AppCompatActivity {
 //                    Picasso.get().load(disaster.getImage()).into(imageView);
 //                }
 
-            }
+
 
             //Intent myIntent = new Intent(this, StepsListActivity.class);
             //startActivity(myIntent);

@@ -13,12 +13,13 @@ import java.util.List;
 
 public class DisasterInfo {
 
+    static Disaster d;
     private static final String NASA_URL = "http://snsdevelop.com/nasa_img";
 
     public static Disaster getData(String disaster) {
         //TODO: use JSON from server API
         if (disaster.equals("tornado")) {
-            Disaster d = new Disaster();
+            d = new Disaster();
             d.setTitle("Tornado");
             d.setExpectedIn("6 hours");
             d.setDescription("According to NOAA, there were over 1,400 tornadoes in 2017. And while tornadoes can strike whenever they please, they're most likely to wreak havoc from April onward til the clock strikes midnight on your summer.\n" +
