@@ -35,7 +35,7 @@ public class DisasterInfo {
             Step step2 = new Step();
             step2.SetStep("Step 2");
             step2.SetTime("5 hours");
-            step2.setState(2);
+            step2.setState(1);
             step2.setImage(NASA_URL + "/step2.jpg");
 
             Step step3 = new Step();

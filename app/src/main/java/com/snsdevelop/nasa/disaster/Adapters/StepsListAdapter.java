@@ -2,6 +2,7 @@ package com.snsdevelop.nasa.disaster.Adapters;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,12 @@ public class StepsListAdapter extends ArrayAdapter<Step> {
         TextView extratxt = (TextView) rowView.findViewById(R.id.textView1);
 
         txtTitle.setText(steps.get(position).GetStep());
+
+        if (steps.get(position).getState() == 2)
+        {
+            txtTitle.setTextColor(Color.parseColor("#ff002a"));
+        }
+
         Picasso.get().load(steps.get(position).getImage()).into(imageView);
         rowView.setOnClickListener((v) -> {
             Intent intent = new Intent(context, StepViewActivity.class);
