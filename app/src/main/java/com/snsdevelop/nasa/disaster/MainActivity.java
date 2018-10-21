@@ -20,6 +20,12 @@ public class MainActivity extends AppCompatActivity {
         startService(new Intent(this, DisasterCheckerService.class));
         ImageView imageSun = findViewById(R.id.imageViewMainActivitySun);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         String disaster = StoredData.getString(this, StoredData.DISASTER);
         Log.d("COOL", "ASD: " + disaster);
         if (!disaster.equals("null")) {
