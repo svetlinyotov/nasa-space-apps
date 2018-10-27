@@ -2,6 +2,7 @@ package com.snsdevelop.nasa.disaster;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
         startService(new Intent(this, DisasterCheckerService.class));
         ImageView imageSun = findViewById(R.id.imageViewMainActivitySun);
+        FloatingActionButton profileButton = findViewById(R.id.floatingActionButtonEditProfile);
+        profileButton.setOnClickListener((v) -> startActivity(new Intent(this, PreferenceActivity.class)));
 
     }
 
@@ -28,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         String disaster = StoredData.getString(this, StoredData.DISASTER);
         Log.d("COOL", "ASD: " + disaster);
-        if (!disaster.equals("null")) {
+        if (disaster != null && !disaster.equals("null")) {
             startActivity(new Intent(this, DisasterInfoActivity.class));
         }
     }

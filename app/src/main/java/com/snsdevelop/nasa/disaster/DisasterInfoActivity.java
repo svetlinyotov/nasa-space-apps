@@ -1,6 +1,7 @@
 package com.snsdevelop.nasa.disaster;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -24,6 +25,7 @@ public class DisasterInfoActivity extends AppCompatActivity {
         TextView expectedIn = findViewById(R.id.textViewExpectedIn);
         ImageView imageView = findViewById(R.id.imageViewDisaster);
         Button button = findViewById(R.id.buttonWhatToDo);
+        FloatingActionButton profileButton = findViewById(R.id.floatingActionButtonEditProfile);
 
         String d = StoredData.getString(this, StoredData.DISASTER);
         Disaster disaster = DisasterInfo.getData(d);
@@ -35,6 +37,8 @@ public class DisasterInfoActivity extends AppCompatActivity {
             Picasso.get().load(disaster.getImage()).into(imageView);
             button.setOnClickListener((v) -> startActivity(new Intent(this, StepViewActivity.class)));
         }
+
+        profileButton.setOnClickListener((v) -> startActivity(new Intent(this, PreferenceActivity.class)));
     }
 
     @Override

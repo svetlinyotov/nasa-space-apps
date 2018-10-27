@@ -17,17 +17,7 @@ import com.snsdevelop.nasa.disaster.Utils.DisasterInfo;
 public class StepsListActivity extends Activity{
 
     ListView list;
-    String[] itemname ={
-            "Safari",
-            "Camera",
-            "Global"
-    };
 
-    Integer[] imgid={
-            R.drawable.ic_icons8_sun,
-            R.drawable.ic_icons8_sun,
-            R.drawable.ic_icons8_sun
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +32,6 @@ public class StepsListActivity extends Activity{
 
         list.setOnItemClickListener((parent, view, position, id) -> {
             // TODO Auto-generated method stub
-            String Slecteditem= itemname[+position];
-            Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
 
         });
     }

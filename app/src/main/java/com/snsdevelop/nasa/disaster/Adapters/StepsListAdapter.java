@@ -37,7 +37,7 @@ public class StepsListAdapter extends ArrayAdapter<Step> {
 
         TextView txtTitle = (TextView) rowView.findViewById(R.id.item);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
-        TextView extratxt = (TextView) rowView.findViewById(R.id.textView1);
+//        TextView extratxt = (TextView) rowView.findViewById(R.id.textView1);
 
         txtTitle.setText(steps.get(position).GetStep());
 

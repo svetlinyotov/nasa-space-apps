@@ -1,12 +1,7 @@
 package com.snsdevelop.nasa.disaster.Utils;
 
-import android.content.res.Resources;
-
-import com.google.gson.Gson;
 import com.snsdevelop.nasa.disaster.Entities.Disaster;
-import com.snsdevelop.nasa.disaster.Entities.Disasters;
 import com.snsdevelop.nasa.disaster.Entities.Step;
-import com.snsdevelop.nasa.disaster.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +33,7 @@ public class DisasterInfo {
             step2.SetTime("5 hours");
             step2.setDescription("Don't forget the baby");
             step2.setState(1);
-            step2.setImage(NASA_URL + "/stepBaby.jpg");
+            step2.setImage(NASA_URL + "/step2.jpg");
 
             Step step3 = new Step();
             step3.SetStep("Plan Ahead ");
@@ -46,41 +41,41 @@ public class DisasterInfo {
             step3.setState(2);
             step3.setDescription("Have a dress rehearsal to make sure everyone is fully prepared to take responsibility for his or her own safety");
             step3.setState(1);
-            step3.setImage(NASA_URL + "/step2.jpg");
+            step3.setImage(NASA_URL + "/step3.jpg");
 
             Step step4 = new Step();
             step4.SetStep("Watch the Weather ");
             step4.SetTime("4 hours");
             step4.setState(2);
             step4.setDescription("Changing weather patterns are like a cheat sheet telling you a tornado might be coming. Pay attention to weather reports and rely on your own instincts and experience.");
-            step4.setImage(NASA_URL + "/step3.jpg");
+            step4.setImage(NASA_URL + "/step4.jpg");
 
             Step step5 = new Step();
             step5.SetStep("See for Yourself ");
             step5.SetTime("3 hours");
             step5.setState(2);
             step5.setDescription("Nature doesn't try to pull a fast one when a tornado is coming. Look for a dark, greenish sky, a wall of clouds and large, grapefruit-sized hail.");
-            step5.setImage(NASA_URL + "/step4.jpg");
+            step5.setImage(NASA_URL + "/step5.jpg");
 
             Step step6 = new Step();
             step6.SetStep("Listen");
             step6.SetTime("2 hours");
             step6.setState(2);
             step6.setDescription("Aside from the alarms, some say tornadoes produce a roar similar to a train.");
-            step6.setImage(NASA_URL + "/step5.jpg");
+            step6.setImage(NASA_URL + "/step6.jpg");
 
             Step step7 = new Step();
             step7.SetStep("Go Underground ");
             step7.SetTime("1 hours");
             step7.setState(2);
             step7.setDescription("If there's no basement, a small room in the middle of the house is best. And since windows can break, stay away from them at all costs");
-            step7.setImage(NASA_URL + "/step6.jpg");
+            step7.setImage(NASA_URL + "/step7.jpg");
 
             Step step8 = new Step();
             step8.SetStep("Know When to Leave ");
             step8.SetTime("less than an hour");
             step8.setState(2);
-            step8.setImage(NASA_URL + "/step7.jpg");
+            step8.setImage(NASA_URL + "/step8.jpg");
 
 
             List<Step> steps = new ArrayList<>();
